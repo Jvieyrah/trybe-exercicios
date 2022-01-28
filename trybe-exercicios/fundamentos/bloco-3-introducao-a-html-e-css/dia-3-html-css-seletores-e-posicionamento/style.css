@@ -23,6 +23,42 @@ caixa {
   
   /* insira na classe abaixo uma borda com valor '5px solid black' para aplicá-la ao item D */
   .border { border: 5px solid black;
-    
+
     
   }
+  ul {
+      background-color: yellow;
+
+  }
+  li{ font-size: 20px;} 
+  .par {
+    color: green;
+  }
+  .impar {
+    text-transform:uppercase;  }
+
+  h1, h3{
+        color: red;
+    }
+
+    h1 h2 h3 h4 h5 h6,i {
+       size: 40px;  border: 1px black solid;
+        }
+
+
+        li{ size: 20px;
+        }
+
+        li.azul{ color:blue }
+        
+        li,i{ color:blue }
+        span{ background-color: pink; }
+
+        li,a:hover {  font-weight:bold; 
+        }
+
+        li,a:hover.trybe {color: green;}
+        li,a:hover.StackOverflow {color: orange;}
+        li,a:hover.W3Schools  {color: green;}
+        li,a:hover.MDN  {color: black}
+        li,a:hover.DEV  {color: yellow}
