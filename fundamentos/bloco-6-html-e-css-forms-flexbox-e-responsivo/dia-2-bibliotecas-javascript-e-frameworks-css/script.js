@@ -1,4 +1,4 @@
-fu
+
 function handleSubmit(event) {
   event.preventDefault();
   const validation = textInputValidation();
@@ -45,6 +45,8 @@ function textInputValidation() {
   
     const reason = document.querySelector('#why').value.length;
     const invalidReason = reason > 500;
+
+  
   
     if (invalidEmail || invalidName || invalidReason) {
       return false;
