@@ -1,0 +1,119 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body{
+      background-color: azure;
+    
+        }
+
+        header p {
+
+            font-size: medium;
+            font-weight: bold;
+            background-color: bisque;
+
+        }
+
+
+ .aside-two{
+ background-color: antiquewhite;
+ 
+}
+    
+
+  footer{
+      background-color: beige;
+    
+}
+
+
+  @media screen and (max-width: 600px) {
+
+    body{
+margin: 10px;
+
+    }
+
+    header p {
+
+        font-size: medium;
+        font-weight: bold;
+        background-color: bisque;
+        padding: 20px;
+
+    }
+
+    nav ul {
+        display: flex;
+        align-content: space-between;
+        justify-content: space-around;
+        background-color: beige;
+        
+    }
+
+    .aside-two{
+        display: none;
+    }
+
+
+    footer{
+        padding: 15px;
+      
+  }
+
+
+}
+
+@media screen and (min-width: 601px) {
+
+    body{
+        margin: 15px;
+        
+            }
+
+        }
+
+           
+        }
+            header p {
+
+                font-size: large;
+                font-weight: bolder;
+                background-color: bisque;
+                padding: 25px;
+        
+            }
+    nav {
+        display: flex;
+        align-content: space-between;
+        justify-content:flex-start;  
+        padding: 30px;         
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        background-color: beige;
+        padding: 10px;
+        width: 500px;
+        
+    }
+    .aside-two{
+        display: flex;
+    }
+
+    .main-content{
+
+        margin: 30px;
+        text-align: justify;
+    }
+
+
+
+}

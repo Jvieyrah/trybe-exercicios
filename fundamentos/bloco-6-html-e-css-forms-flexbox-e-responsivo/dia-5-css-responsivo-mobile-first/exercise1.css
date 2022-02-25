@@ -1,0 +1,161 @@
+/*
+ * @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * apply a natural box layout model to all elements, but allowing components to change
+ */
+ html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font: 1.2em/1.2 Helvetica, aria, sans-serif;
+    margin: 0 3%;
+  }
+  
+  article {
+    text-align: justify;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+    margin: .9em 0 0 0;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin: 1.5em 0 0 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  section {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  figure {
+    background: black;
+    border-radius: 5px;
+    color: white;
+    margin: 0 0 25px 0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  figcaption {
+    font-size: .8em;
+  }
+
+  @media screen and (min-width: 400px)
+   {
+    main {
+        margin: 50px;
+        border: 1px solid gray;
+        background-color: gray;
+  
+    }
+
+    h1 {
+
+        font-size: medium;
+  
+    }
+
+    section {
+
+        font-size: medium;
+
+    }
+
+    figure {
+        margin: 10;
+        width:200;
+    }
+      
+  }
+
+
+  @media screen and (min-width: 600px)
+  {
+  
+   section {
+
+       font-size: small;
+       text-
+
+   }
+
+   figure {
+       margin: 10;
+       width:200;
+    
+   }
+
+   .kittens {
+       
+    display: flex;
+    flex-wrap: wrap;
+
+
+   }
+     
+ }
+
+
+ @media screen and (min-width: 700px) {
+
+    body {
+        margin:20px
+  
+    }
+ 
+  section {
+
+      font-size: medium;
+      color: gray;
+
+  }
+
+  figure {
+      margin: 15;
+      width:250;
+   
+  }
+
+  .kittens {
+      
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   height: 800px;
+
+
+  }
+    
+}
+@media screen and (min-width: 1000px) {
+    body{
+        background-color: blue;
+        margin 30px;
+            }
+ 
+    section {
+
+        font-size: large;
+        color: gray;
+        margin: 30px;
+        max-width: 800px;
+  
+    }
+
+}
