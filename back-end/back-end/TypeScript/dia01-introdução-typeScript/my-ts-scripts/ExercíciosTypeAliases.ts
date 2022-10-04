@@ -104,3 +104,46 @@ class House {
       this.passengers = passengers;
     }
   }
+
+  interface car {   
+    name: string;
+    brand: string;
+    color: string;
+    year: number;
+    price: number;
+    isUsed: boolean;
+    turnOn: () => void;
+    turnOff: () => void;
+    speedUp: () => void;
+    speedDown: () => void;
+    break: () => void;
+    }   
+
+interface aircraft {
+    tailNumber: string;
+    model: string;
+    manufacturer: string;
+    capacity: number;
+    range: number;
+    turnOn: () => void;
+    turnOff: () => void;
+    speedUp: () => void;
+    speedDown: () => void;
+    break: () => void;
+    }
+
+    
+interface feline (
+    name: string;
+    breed: string;
+    color: string;
+    age: number;
+    isVaccinated: boolean;
+    isNeutered: boolean;
+    isAdopted: boolean;
+    walk: () => void;
+    hunt: () => void;
+    eat: () => void;
+    sleep: () => void;
+    )
+
