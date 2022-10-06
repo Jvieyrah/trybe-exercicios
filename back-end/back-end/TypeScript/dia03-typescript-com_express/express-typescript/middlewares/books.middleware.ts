@@ -7,9 +7,10 @@ const properties = ['title', 'price', 'author', 'isbn'];
 function validateProperties(book: Book): [boolean, string | null] {
 for (let i = 0; i < properties.length; i++) {
 const property = properties[i];
-if (!Object.prototype.hasOwnProperty.call(book, property[i])) {
-return [false, properties[i]];
-}
+console.log(property[i]);
+if (!Object.prototype.hasOwnProperty.call(book, properties[i])) {
+    return [false, properties[i]];
+  }
 }
 return [true, null];
 }
@@ -18,6 +19,7 @@ function validateValues(book: Book): [boolean, string | null] {
 const entries = Object.entries(book);
 for (let i = 0; i < entries.length; i++) {
     const [property,value] = entries[i];
+    console.log(entries[i]);
     if (!value) {
         return [false, property];
     }
