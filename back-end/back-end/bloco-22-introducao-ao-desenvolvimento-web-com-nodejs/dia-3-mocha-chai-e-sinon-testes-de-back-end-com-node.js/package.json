@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "simon": "^0.2.3"
+  },
+  "name": "dia-3-mocha-chai-e-sinon-testes-de-back-end-com-node",
+  "version": "1.0.0",
+  "description": "exercicio ",
+  "main": "numerosNaturais.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "author": "joao",
+  "license": "ISC"
+}
