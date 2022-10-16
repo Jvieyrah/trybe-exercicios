@@ -3,10 +3,16 @@ type Discipline = {
     grade: number;
     letterGrade?: string;
   };
-
+  
+    type School = {
+      name: string;
+      approvalGrade: number;
+    };
+    
   type Student = {
     name: string;
     disciplines: Discipline[];
+    school: School; 
   };
 
 /* Apoio para a função `getGradeLetter` */
@@ -56,10 +62,31 @@ const getLetterGrades = (discipline: Discipline): Discipline => ({
   // });
 
   /* "Determinar" */
-  const approvedStudents = ({ disciplines }: Student): boolean => 
-    disciplines.every(({ grade }) => grade >0.7,
-    );
+  const approvedStudents = ({ disciplines, school }: Student): boolean => 
+    disciplines
+    .every(({ grade }) => grade >= school.approvalGrade);  
       
+    const studentsExample = [
+      {
+        name: 'Lee',
+        school: 'Standard',
+        disciplines: [
+          { name: 'matemática', grade: 0.8 },
+          { name: 'história', grade: 0.9 },
+        ],
+      },
+      {
+        name: 'Albus',
+        school: 'Hogwarts',
+        disciplines: [
+          { name: 'divination', grade: 0.8 },
+          { name: 'potions', grade: 0.9 },
+        ],
+      },
+    ];
+
+
+    console.log(setApproved(studentsExample);)
   /* "Atualizar" */
 
   const updateApprovalData = ({ name: studentName, disciplines }: Student): void => {
