@@ -1,0 +1,5 @@
+use('trybeFlix');
+
+db.filmes.find({$nor: [ {field {operador: valor}}, {field {operador: valor}} ]});
+
+db.filmes.find({$nor: [ {diretor: "Michel Bay" }, {ano: 2000}, {"avaliacao.ruim": 10} ]});

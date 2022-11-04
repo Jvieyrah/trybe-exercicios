@@ -1,0 +1,9 @@
+use('trybeFlix');
+
+db.filmes.find({ano: {$gt: 1993}}).count();
+
+db.filmes.find({ano: {$gt: 1993}}).pretty();
+
+db.filmes.find({ano: { $gte: 1993, $lte: 2000}});
+
+db.filmes.find({ano:1993}).pretty();
