@@ -48,7 +48,7 @@ use("cinema")
 
 db.movies.updateOne(
   { title: "Batman" },
-  { $push: { category: { $each: ["villain", "comic-based"] } } },
+  { $adTo: { category: { $each: ["villain", "comic-based"] } } },
 );
 
 db.movies.find({ title: "Batman" });
@@ -161,7 +161,7 @@ use("cinema")
 
 db.movies.updateOne(
   { title: "Batman", "cast.character": "Batman" },
-    { $set: { "cast.0.actor": "Christian Bale"} },
+    { $set: { "cast.0.actor": ["Christian Bale"]} },
 );
 
 db.movies.find({ title: "Batman" });
@@ -172,7 +172,7 @@ use("cinema")
 
 db.movies.updateOne(
   { title: "Batman", "cast.character": "Alfred" },
-    { $set: { "cast.1.actor": "Michael Caine"} },
+  { $set: { "cast.1.actor": ["Michael Caine"]} },
 );
 
 db.movies.find({ title: "Batman" });
@@ -183,7 +183,7 @@ use("cinema")
 
 db.movies.updateOne(
   { title: "Batman", "cast.character": "Coringa" },
-    { $set: { "cast.2.actor": "Heath Ledger"} },
+    { $set: { "cast.2.actor": ["Heath Ledger"]} },
 );
 
 db.movies.find({ title: "Batman" });
@@ -206,5 +206,7 @@ db.movies.updateOne(
     },
   },
 );
+
+use("cinema")
 db.movies.find({ title: "Batman" });
 
