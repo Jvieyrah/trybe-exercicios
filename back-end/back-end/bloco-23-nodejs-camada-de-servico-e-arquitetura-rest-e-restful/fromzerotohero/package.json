@@ -1,0 +1,23 @@
+{
+  "name": "fromzerotohero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node.index.js",
+    "dev": "nodemon index.js",
+    "test": "mocha tests/**/*$NAME.tests.js"
+  },
+  "keywords": [],
+  "author": "joao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "joy": "^0.1.1",
+    "mysql2": "^2.3.3"
+  }
+}
