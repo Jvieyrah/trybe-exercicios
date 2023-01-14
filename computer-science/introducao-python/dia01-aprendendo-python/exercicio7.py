@@ -15,4 +15,4 @@ for num in numsArr:
     else:
         sum += int(num)
 
-print(f"A soma dos valores válidos é: {sum}")
+print(f"A soma dos valores válidos é: {sum}")h=joao
