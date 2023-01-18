@@ -1,0 +1,212 @@
+use("cinema;")
+db.movies.drop();
+db.movies.insertMany([
+  {
+    title: "Batman",
+    category: [
+      "action",
+      "adventure",
+    ],
+    imdbRating: 7.7,
+    budget: 35,
+  },
+  {
+    title: "Godzilla",
+    category: [
+      "action",
+      "adventure",
+      "sci-fi",
+    ],
+    imdbRating: 6.6,
+    budget: 1,
+  },
+  {
+    title: "Home Alone",
+    category: [
+      "family",
+      "comedy",
+    ],
+    imdbRating: 7.4,
+  },
+]);
+
+// Adicione a categoria "superhero" ao filme Batman.
+
+use("cinema;")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: { category: "superhero" } },
+);
+
+db.movies.find();
+
+// Utilizando o modificador $each, adicione 
+// as categorias "villain" e "comic-based" ao filme Batman..
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $adTo: { category: { $each: ["villain", "comic-based"] } } },
+);
+
+db.movies.find({ title: "Batman" });
+
+//  Remova a categoria "action" do filme Batman.
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $pull: { category: "action" } },
+);
+
+db.movies.find({ title: "Batman" });
+
+//  Remova o último elemento do array category do filme Batman.
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $pop: { category: 1 } },
+);
+
+db.movies.find({ title: "Batman" });
+
+//  Adicione o elemento "action" ao array category do filme Batman,
+//  garantindo que esse valor não se duplique.
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $addToSet: { category: "action" } },
+);
+
+db.movies.find({ title: "Batman" });
+
+// Adicione a categoria "90's" aos filmes Batman e Home Alone.
+
+use("cinema")
+
+db.movies.updateMany(
+     { title: {$in: ["Batman", "Home Alone"] } },
+     { $addToSet: { category: "90's" } },
+);
+
+use("cinema")
+db.movies.find({ title: {$in: ["Batman", "Home Alone"] } });
+
+//  Crie um array de documentos chamado cast para o filme Home Alone com os seguintes dados:
+// {
+//   "actor": "Macaulay Culkin",
+//   "character": "Kevin"
+// },
+// {
+//   "actor": "Joe Pesci",
+//   "character": "Harry"
+// },
+// {
+//   "actor": "Daniel Stern"
+// }
+
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Home Alone" },
+  { $set: { cast: [
+    { actor: "Macaulay Culkin", character: "Kevin" },
+    { actor: "Joe Pesci", character: "Harry" },
+    { actor: "Daniel Stern" },
+  ] } },
+);
+
+db.movies.find({ title: "Home Alone" });
+
+
+//  Adicione o campo character com o valor Marv ao array de cast em que o campo actor seja igual a Daniel Stern no filme Home Alone.
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Home Alone", "cast.actor": "Daniel Stern" },
+  { $set: { "cast.$.character": "Marv" } },
+);
+
+db.movies.find({ title: "Home Alone" });
+
+
+
+//Crie um array de documentos chamado cast para o filme Batman com os seguintes dados:
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { cast: [
+    { character: "Batman"},
+    { character: "Alfred" },
+    { character: "Coringa" },
+  ] } },
+);
+
+db.movies.find({ title: "Batman" });
+
+//  Produza três querys para o filme Batman:
+//Adicione o campo actor, que deve ser um array com o valor Christian Bale, ao array de cast em que o campo character seja igual a Batman;
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman", "cast.character": "Batman" },
+    { $set: { "cast.0.actor": ["Christian Bale"]} },
+);
+
+db.movies.find({ title: "Batman" });
+
+// Adicione o campo actor, que deve ser um array com o valor Michael Caine, ao array de cast em que o campo character seja igual a Alfred;
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman", "cast.character": "Alfred" },
+  { $set: { "cast.1.actor": ["Michael Caine"]} },
+);
+
+db.movies.find({ title: "Batman" });
+
+//Adicione o campo actor, que deve ser um array com o valor Heath Ledger, ao array de cast em que o campo character seja igual a Coringa.
+
+use("cinema")
+
+db.movies.updateOne(
+  { title: "Batman", "cast.character": "Coringa" },
+    { $set: { "cast.2.actor": ["Heath Ledger"]} },
+);
+
+db.movies.find({ title: "Batman" });
+
+
+// Exercício 12: Adicione aos atores de cast do character Batman do filme Batman os valores "Michael Keaton", "Val Kilmer" e "George Clooney", e deixe o array em ordem alfabética.
+use("cinema")
+
+db.movies.updateOne(
+  {
+    title: "Batman",
+    "cast.character": "Batman",
+  },
+  {
+    $push: {
+      "cast.$.actor": {
+        $each: ["Michael Keaton", "Val Kilmer", "George Clooney"],
+        $sort: 1,
+      },
+    },
+  },
+);
+
+use("cinema")
+db.movies.find({ title: "Batman" });
+
