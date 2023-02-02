@@ -7,11 +7,12 @@ class Pessoa:
         self.nome = nome
         self.saldo_na_conta = saldo_na_conta
         self.eletrodomestico = None
+        self.eletrodomesticos = []
 
     def comprar_eletrodomestico(self, eletrodomestico):
         if eletrodomestico.preco <= self.saldo_na_conta:
             self.saldo_na_conta -= eletrodomestico.preco
-            self.eletrodomestico = eletrodomestico
+            self.eletrodomestico.append(eletrodomestico)
             
     def __str__(self):
         

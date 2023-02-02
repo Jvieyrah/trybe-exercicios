@@ -26,8 +26,8 @@ class Liquidificador:
         self.__velocidade = 0
         self.__ligado = False
         
-    def esta_ligado(self):
-        return self.__ligado
+     def esta_ligado(self):
+        return False
     
     def get_cor(self):
         return self.__cor.upper()
