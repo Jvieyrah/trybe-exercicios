@@ -1,0 +1,8 @@
+use('trybeFlix');
+
+db.filmes.find({ano: { $eq: 1993 }});
+db.filmes.find({ "avaçiação.bom": { $eq: 7 }});
+db.filmes.find({ "avaçiação.ruim": { $ne: 7 }});
+
+db.filmes.find({ ano: { $in: [1993, 1994, 1995] }});
+db.filmes.find({ ano: { $nin: [1993, 1994, 1995] }});
