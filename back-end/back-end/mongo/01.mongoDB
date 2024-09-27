@@ -1,0 +1,3 @@
+use('trybeFlix');
+
+db.filmes.find({ano: {$gt: 1968}});
