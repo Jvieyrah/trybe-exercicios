@@ -1,0 +1,14 @@
+{
+  "name": "dia-1-nodejs-um-motor-javascript",
+  "version": "1.0.0",
+  "description": "imc software",
+  "main": "index.js",
+  "scripts": {
+    "imc": "node imc.js"
+  },
+  "author": "joão",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
