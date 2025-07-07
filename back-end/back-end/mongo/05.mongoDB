@@ -1,0 +1,7 @@
+use('trybeFlix');
+
+db.filmes.find({ $and : [{ "atores" : "Tom Hanks" }, { "atores" : "Meg Ryan" }] }).pretty();
+
+db.filmes.find({ $and:  [{ ano: { $gte: 2000 }}, { "avaliação.bom": { $gte: 3 }}] })
+
+db.filmes.find({ $or:  [{ ano: { $gte: 2000 }}, { "avaliação.bom": { $gte: 8 }}] })
