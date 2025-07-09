@@ -1,0 +1,50 @@
+use('class2')
+db.movies.insertMany([
+     { "title": "Batman", "category": [ "action", "adventure" ], "imdbRating": 7.6, "budget": 35 }, { "title": "Godzilla", "category": [ "action", "adventure", "sci-fi" ], "imdbRating": 6.6 }, { "title": "Home Alone", "category": [ "family", "comedy" ], "imdbRating": 7.4, } 
+     ]) 
+
+use('class2')
+db.movies.updateOne({title: "Batman"},
+ {$set: {imdbRating: 7.7}})
+
+//Altere budget para 15 e imdbRating para 5.5 no filme Home Alone. 
+
+use('class2')
+db.movies.updateOne({title: "Home Alone"},
+ {$set: {imdbRating: 5.5, budget: 15}})
+
+ //Aumente em 2 o imdbRating do filme Batman. 
+
+use('class2')
+db.movies.updateOne({title: "Batman"},
+ {$inc: {imdbRating: 2}})
+
+ //Multiplique por 4 o imdbRating do filme Batman.
+
+use('class2')
+db.movies.updateOne({title: "Batman"},
+ {$mul: {imdbRating: 4}})
+
+ //Renomeie o campo budget para estimatedBudget do filme Batman.
+
+use('class2')
+db.movies.updateOne({title: "Batman"},
+ {$rename: {budget: "estimatedBudget"}})
+
+//Utilizando uma única operação, crie um campo chamado sequels e atribua a ele o valor 0 em todos os documentos
+
+use('class2')
+db.movies.updateMany({},
+ {$set: {sequels: 0}})
+
+ //Para os filmes Batman ou Home Alone, atribua a imdbRating o valor 17 caso o valor de imdbRating seja menor que 17. 
+
+use('class2')
+
+db.movies.updateMany(
+ {$or:
+  [{$title: "Batman" },
+   { title  "Home Alone"}]},
+ {$max: {imdbRating: 17}})
+
+ 
